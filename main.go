@@ -1,13 +1,13 @@
 // Copyright (c) 2018, The TurtleCoin Developers
-//
+// Copyright (c) 2018, The FRED Project
 // Please see the included LICENSE file for more information.
 //
 
 package main
 
 import (
-	"TurtleCoin-Nest/turtlecoinwalletdrpcgo"
-	"TurtleCoin-Nest/walletdmanager"
+	"FRED-Nest/turtlecoinwalletdrpcgo"
+	"FRED-Nest/walletdmanager"
 	"encoding/csv"
 	"encoding/json"
 	"io"
@@ -45,7 +45,7 @@ var (
 	useCheckpoints              = true
 	displayFiatConversion       = false
 	stringBackupKeys            = ""
-	rateUSDTRTL                 float64 // USD value for 1 TRTL
+	rateUSDTRTL                 float64 // USD value for 1 FRED
 	customRemoteDaemonAddress   = defaultRemoteDaemonAddress
 	customRemoteDaemonPort      = defaultRemoteDaemonPort
 	limitDisplayedTransactions  = true
@@ -78,7 +78,7 @@ func main() {
 			log.Fatal(err)
 		}
 		pathToHomeDir = usr.HomeDir
-		pathToAppFolder := pathToHomeDir + "/Library/Application Support/TurtleCoin-Nest"
+		pathToAppFolder := pathToHomeDir + "/Library/Application Support/FRED-Nest"
 		os.Mkdir(pathToAppFolder, os.ModePerm)
 		pathToDB = pathToAppFolder + "/" + pathToDB
 
