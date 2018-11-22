@@ -16,7 +16,7 @@ const (
 
 	// default remote node
 	defaultRemoteDaemonAddress = "207.154.253.243"
-	defaultRemoteDaemonPort    = "32809"
+	defaultRemoteDaemonPort    = "8070"
 	defaultRemoteDaemonName    = "pnode.fredcoinpool.com"
 	defaultRemoteDaemonSSL     = false
 )
