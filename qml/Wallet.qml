@@ -171,7 +171,7 @@ Rectangle {
             Text {
                 id: textLockedDescr
                 color: "#cfcfcf"
-                text: "Locked/Unconfirmed:"
+                text: "Locked:"
                 anchors.bottom: textLockedUnit.bottom
                 anchors.bottomMargin: 0
                 font.family: "Arial"
@@ -209,7 +209,7 @@ Rectangle {
             horizontalAlignment: Text.AlignHCenter
             font.bold: true
             font.family: "Arial"
-            font.pixelSize: 25
+            font.pixelSize: 20
         }
 
         Text {
@@ -221,10 +221,10 @@ Rectangle {
             anchors.bottomMargin: 10
             anchors.horizontalCenter: parent.horizontalCenter
             font.family: "Arial"
-            font.pixelSize: 30
+            font.pixelSize: 24
             font.bold: true
             anchors.horizontalCenterOffset: 0
-            horizontalAlignment: Text.AlignRight
+            horizontalAlignment: Text.AlignLeft
         }
 
         Text {
@@ -285,7 +285,7 @@ Rectangle {
         Text {
             id: textDescrWalletName
             color: "#858585"
-            text: "wallet: "
+            text: "Wallet: "
             verticalAlignment: Text.AlignBottom
             anchors.left: parent.left
             anchors.leftMargin: 40
@@ -676,7 +676,7 @@ Rectangle {
                 onTextChanged: {
                     buttonSend.enabled = textInputTransferAmount.text != "" && textInputTransferAddress.text != ""
                     /* Disable payment ID input if integrated address */
-                    textInputTransferPaymentID.enabled = textInputTransferAddress.text.length != 187
+                    textInputTransferPaymentID.enabled = textInputTransferAddress.text.length != 189
                 }
             }
         }
@@ -968,7 +968,7 @@ Rectangle {
         Text {
             id: textTransferFeeUnit
             color: "#999999"
-            text: "TRTL"
+            text: "FRED"
             anchors.verticalCenter: rectangleTextInputTransferFee.verticalCenter
             horizontalAlignment: Text.AlignLeft
             font.pixelSize: 14
@@ -1375,12 +1375,12 @@ Rectangle {
                 height: 80
 
                 function clickedSavedAddress(address, paymentID) {
-                    
+
                     textInputTransferAddress.text = address;
                     textInputTransferAddress.cursorPosition = 0;
                     textInputTransferPaymentID.text = paymentID;
                     textInputTransferPaymentID.cursorPosition = 0;
-                    
+
                     dialogListAddresses.close();
                 }
 
@@ -1453,11 +1453,11 @@ Rectangle {
         target: QmlBridge
 
         onDisplayPrivateKeys: {
-            privateKeysDialog.show(filename, privateViewKey, privateSpendKey, walletAddress);            
+            privateKeysDialog.show(filename, privateViewKey, privateSpendKey, walletAddress);
         }
 
         onDisplaySeed: {
-            seedDialog.show(filename, mnemonicSeed, walletAddress);            
+            seedDialog.show(filename, mnemonicSeed, walletAddress);
         }
 
         onDisplaySyncingInfo: {

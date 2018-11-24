@@ -54,6 +54,8 @@ var (
 	urlNewVersion               = ""
 )
 
+var formatMask = "#,###.#########";
+
 func main() {
 
 	logsFolder := "logs"
@@ -222,10 +224,10 @@ func getAndDisplayBalances() {
 
 	walletAvailableBalance, walletLockedBalance, walletTotalBalance, err := walletdmanager.RequestBalance()
 	if err == nil {
-		qmlBridge.DisplayAvailableBalance(humanize.FormatFloat("#,###.##", walletAvailableBalance))
-		qmlBridge.DisplayLockedBalance(humanize.FormatFloat("#,###.##", walletLockedBalance))
+		qmlBridge.DisplayAvailableBalance(humanize.FormatFloat(formatMask, walletAvailableBalance))
+		qmlBridge.DisplayLockedBalance(humanize.FormatFloat(formatMask, walletLockedBalance))
 		balanceUSD := walletTotalBalance * rateUSDTRTL
-		qmlBridge.DisplayTotalBalance(humanize.FormatFloat("#,###.##", walletTotalBalance), humanize.FormatFloat("#,###.##", balanceUSD))
+		qmlBridge.DisplayTotalBalance(humanize.FormatFloat(formatMask, walletTotalBalance), humanize.FormatFloat(formatMask, balanceUSD))
 	}
 }
 
@@ -491,12 +493,12 @@ func getFullBalanceAndDisplayInTransferAmount(transferFee string) {
 	if err != nil {
 		qmlBridge.DisplayErrorDialog("Error calculating full balance minus fee.", err.Error())
 	}
-	qmlBridge.DisplayFullBalanceInTransferAmount(humanize.FtoaWithDigits(availableBalance, 2))
+	qmlBridge.DisplayFullBalanceInTransferAmount(humanize.FtoaWithDigits(availableBalance, 9))
 }
 
 func getDefaultFeeAndDisplay() {
 
-	qmlBridge.DisplayDefaultFee(humanize.FtoaWithDigits(walletdmanager.DefaultTransferFee, 2))
+	qmlBridge.DisplayDefaultFee(humanize.FtoaWithDigits(walletdmanager.DefaultTransferFee, 9))
 }
 
 func getNodeFeeAndDisplay() {
@@ -505,7 +507,7 @@ func getNodeFeeAndDisplay() {
 	if err != nil {
 		qmlBridge.DisplayNodeFee("-")
 	} else {
-		qmlBridge.DisplayNodeFee(humanize.FtoaWithDigits(nodeFee, 2))
+		qmlBridge.DisplayNodeFee(humanize.FtoaWithDigits(nodeFee, 9))
 	}
 }
 

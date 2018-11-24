@@ -15,8 +15,13 @@ const (
 	numberTransactionsToDisplay = 20
 
 	// default remote node
+<<<<<<< HEAD
 	defaultRemoteDaemonAddress = "207.154.253.243"
 	defaultRemoteDaemonPort    = "8070"
+=======
+	defaultRemoteDaemonAddress = "pnode.fredcoinpool.com"
+	defaultRemoteDaemonPort    = "32809"
+>>>>>>> 6f71d841c9faf747d24a514c02845b21121d68db
 	defaultRemoteDaemonName    = "pnode.fredcoinpool.com"
 	defaultRemoteDaemonSSL     = false
 )
