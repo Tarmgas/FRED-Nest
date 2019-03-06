@@ -78,16 +78,17 @@ TRTLv3jzutiQwqHL3qFwsu5EVLWesxZr1AFQ4AuMR3SD56n3rkHDkwj79eKwvaiU1nYQWGydKoXM6fXy
     ```
 4. Similarly add the following lines to `.profile` file, save the file and then execute the command `source .profile` in a terminal.
     ```
-    CGO_CXXFLAGS_ALLOW=".*" 
-    CGO_LDFLAGS_ALLOW=".*" 
-    CGO_CFLAGS_ALLOW=".*" 
+    CGO_CXXFLAGS_ALLOW=".*"
+    CGO_LDFLAGS_ALLOW=".*"
+    CGO_CFLAGS_ALLOW=".*"
     ```
 5. Follow the instructions present [here](https://github.com/therecipe/qt/wiki/Installation-on-Linux) till **Run the setup** to install Qt which is the most important binding required to build Nest.
 6. Type the following commands to clone the Nest wallet, install dependencies and build the wallet.
     ```
     $ cd $HOME/go/src
     $ git clone https://github.com/fredenrg/FRED-Nest.git FRED-Nest
-    $ go get github.com/atotto/clipboard github.com/dustin/go-humanize $ github.com/mattn/go-sqlite3 github.com/mcuadros/go-version github.com/mitchellh/go-ps github.com/pkg/errors
+    $ go get -v github.com/atotto/clipboard github.com/dustin/go-humanize github.com/mattn/go-sqlite3 github.com/mcuadros/go-version github.com/mitchellh/go-ps github.com/pkg/errors
+    $ cd FRED-Nest
     $ qtdeploy build desktop
     ```
 
